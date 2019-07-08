@@ -1,0 +1,22 @@
+function getParameterDefinitions() {
+    return [
+        { name: 'holex', type: 'int', initial: 4, caption: 'Length?' }, 
+        { name: 'holey', type: 'int', initial: 4, caption: 'Width?' },
+    ];
+}
+
+function main () {
+var holex = 4, holey = 5
+  return difference(
+      union(
+        cylinder({r: 10, h:10}),
+        translate([0,0,10],sphere({r:10}))
+        ),
+      rotate([0,0,45],
+      translate([-holex/2,holey/2,0],
+          cube({size: [holex,holey,20]})                  
+          )
+      )
+    )
+
+}
